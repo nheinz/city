@@ -1,6 +1,6 @@
 #! /usr/bin/python
 
-I'M EDITING THIS FILE FOR THE STAGING AND COMMITING COMPETENCY
+I'M EDITING THIS FILE FOR THE PUSHING COMPETENCY
 
 from __future__ import print_function
 import copy
