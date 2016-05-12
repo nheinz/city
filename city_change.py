@@ -29,22 +29,22 @@ for step in range(time_limit):
 	for x in range(size):
 		for y in range(size):
 			new_city[x][y] = city[x][y] # the default is that cells don't change
-			elements = 0
+			blocks = 0
 			for neighbor in get_neighbors((x, y)):
 				if new_city[neighbor[0]][neighbor[1]] == ' ':
-					elements += 1
-			if new_city[x][y] == ' ':
-				if elements == 1 or elements == 0:
-					new_city[x][y] = 'I'
-			if new_city[x][y] == 'I':
-				if elements >= 4:
-					new_city[x][y] = 'R'
-			if new_city[x][y] == 'R':
-				if elements >= 5:
-					new_city[x][y] = 'C'
-			if new_city[x][y] != ' ':
-				if elements == 0:
-					new_city[x][y] = ' '				
+					blocks += 1
+			if city[x][y] != ' ':
+				if city[x][y] == 'R':
+					if blocks >= 5:
+						new_city[x][y] = 'C'
+				if city[x][y] == 'I':
+					if blocks >= 4:
+						new_city[x][y] = 'R'
+				if blocks == 0:
+						new_city[x][y] = ' '	
+			if city[x][y] == ' ':
+				if blocks == 1 or blocks == 0:
+					new_city[x][y] = 'I'			
 
 	print('Step {step}:'.format(step = step))
 	for y in reversed(range(size)):
